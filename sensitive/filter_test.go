@@ -22,6 +22,19 @@ func TestDefaultNew(t *testing.T) {
 	}
 }
 
+func TestBossNew(t *testing.T) {
+	filter := DefaultNew()
+	b, s := filter.Validate("小熊微泥")
+	if b != true {
+		t.Error("New error: " + fmt.Sprint(b) + " " + s)
+	}
+	filter = BossNew()
+	b, s = filter.Validate("小熊微泥")
+	if b == true {
+		t.Error("DefaultNew error: " + fmt.Sprint(b) + " " + s)
+	}
+}
+
 func TestLoadDict(t *testing.T) {
 	filter := New()
 	err := filter.LoadWordDict("../dict/dict.txt")

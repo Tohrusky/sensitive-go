@@ -16,10 +16,17 @@ type Filter struct {
 	noise *regexp.Regexp
 }
 
-// DefaultNew 返回一个敏感词过滤器，携带默认的敏感词库
+// DefaultNew 返回一个敏感词过滤器，携带默认的普通敏感词库
 func DefaultNew() *Filter {
 	filter := New()
 	filter.AddWord(sdict.DefaultSDict...)
+	return filter
+}
+
+// BossNew 返回一个敏感词过滤器，携带默认的Boss高危敏感词库
+func BossNew() *Filter {
+	filter := New()
+	filter.AddWord(sdict.BossSDict...)
 	return filter
 }
 
