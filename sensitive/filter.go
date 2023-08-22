@@ -2,6 +2,7 @@ package sensitive
 
 import (
 	"bufio"
+	"github.com/Tohrusky/chinese-sensitive-go/sdict"
 	"io"
 	"net/http"
 	"os"
@@ -13,6 +14,13 @@ import (
 type Filter struct {
 	trie  *Trie
 	noise *regexp.Regexp
+}
+
+// DefaultNew 返回一个敏感词过滤器，携带默认的敏感词库
+func DefaultNew() *Filter {
+	filter := New()
+	filter.AddWord(sdict.DefaultSDict...)
+	return filter
 }
 
 // New 返回一个敏感词过滤器

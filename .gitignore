@@ -22,3 +22,4 @@ go.work
 
 *.DS_Store
 /.idea
+/sdict/myarray.go

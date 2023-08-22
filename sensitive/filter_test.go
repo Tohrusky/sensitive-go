@@ -1,12 +1,26 @@
 package sensitive
 
 import (
+	"fmt"
 	"io"
 	"reflect"
 	"regexp"
 	"strings"
 	"testing"
 )
+
+func TestDefaultNew(t *testing.T) {
+	filter := New()
+	b, s := filter.Validate("综合能力科目考试个别试题出现错误")
+	if b != true && s != "" {
+		t.Error("New error: " + fmt.Sprint(b) + " " + s)
+	}
+	filter = DefaultNew()
+	b, s = filter.Validate("综合能力科目考试个别试题出现错误")
+	if b == true {
+		t.Error("DefaultNew error: " + fmt.Sprint(b) + " " + s)
+	}
+}
 
 func TestLoadDict(t *testing.T) {
 	filter := New()
@@ -18,7 +32,7 @@ func TestLoadDict(t *testing.T) {
 
 func TestLoadNetWordDict(t *testing.T) {
 	filter := New()
-	err := filter.LoadNetWordDict("https://raw.githubusercontent.com/importcjj/sensitive/master/dict/dict.txt")
+	err := filter.LoadNetWordDict("https://raw.githubusercontent.com/Tohrusky/chinese-sensitive-go/main/dict/dict.txt")
 	if err != nil {
 		t.Errorf("fail to load dict %v", err)
 	}
