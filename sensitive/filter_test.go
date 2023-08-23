@@ -11,12 +11,12 @@ import (
 
 func TestDefaultNew(t *testing.T) {
 	filter := New()
-	b, s := filter.Validate("综合能力科目考试个别试题出现错误")
+	b, s := filter.Validate("&~综合偷拍区***^$@!")
 	if b != true && s != "" {
 		t.Error("New error: " + fmt.Sprint(b) + " " + s)
 	}
 	filter = NewWithDefaultSDict()
-	b, s = filter.Validate("综合能力科目考试个别试题出现错误")
+	b, s = filter.Validate("&~综合偷拍区***^$@!")
 	if b == true {
 		t.Error("DefaultNew error: " + fmt.Sprint(b) + " " + s)
 	}

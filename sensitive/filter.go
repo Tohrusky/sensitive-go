@@ -34,7 +34,7 @@ func NewWithBossSDict() *Filter {
 func New() *Filter {
 	return &Filter{
 		trie:  NewTrie(),
-		noise: regexp.MustCompile(`[\|\s&%$@*]+`),
+		noise: regexp.MustCompile(`[|\s&%$@*！!#^~_—｜'";.。，,?<>《》：:]+`),
 	}
 }
 
@@ -91,7 +91,12 @@ func (filter *Filter) LoadWordDict(path string) error {
 	if err != nil {
 		return err
 	}
-	defer f.Close()
+	defer func(f *os.File) {
+		err := f.Close()
+		if err != nil {
+			panic(err)
+		}
+	}(f)
 
 	return filter.Load(f)
 }
@@ -105,7 +110,12 @@ func (filter *Filter) LoadNetWordDict(url string) error {
 	if err != nil {
 		return err
 	}
-	defer rsp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+			panic(err)
+		}
+	}(rsp.Body)
 
 	return filter.Load(rsp.Body)
 }

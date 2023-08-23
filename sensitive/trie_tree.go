@@ -238,7 +238,7 @@ func (tree *Trie) FindAll(text string) []string {
 func NewNode(character rune) *Node {
 	return &Node{
 		Character: character,
-		Children:  make(map[rune]*Node, 0),
+		Children:  make(map[rune]*Node),
 	}
 }
 
@@ -247,7 +247,7 @@ func NewRootNode(character rune) *Node {
 	return &Node{
 		isRootNode: true,
 		Character:  character,
-		Children:   make(map[rune]*Node, 0),
+		Children:   make(map[rune]*Node),
 	}
 }
 
