@@ -9,7 +9,7 @@ Fork from [importcjj/sensitive](https://github.com/importcjj/sensitive).
 go get github.com/Tohrusky/sensitive-go
 ```
 
-## 用法
+## 使用
 
 ```go
 package sensitive
