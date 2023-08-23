@@ -2,6 +2,7 @@ package sensitive
 
 import (
 	"bufio"
+	"fmt"
 	"github.com/Tohrusky/sensitive-go/sdict"
 	"io"
 	"net/http"
@@ -94,7 +95,7 @@ func (filter *Filter) LoadWordDict(path string) error {
 	defer func(f *os.File) {
 		err := f.Close()
 		if err != nil {
-			panic(err)
+			fmt.Println(err.Error())
 		}
 	}(f)
 
@@ -113,7 +114,7 @@ func (filter *Filter) LoadNetWordDict(url string) error {
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
 		if err != nil {
-			panic(err)
+			fmt.Println(err.Error())
 		}
 	}(rsp.Body)
 
