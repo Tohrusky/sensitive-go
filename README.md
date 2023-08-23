@@ -23,8 +23,8 @@ var (
 // Init 初始化敏感词库，单例模式
 func Init() {
 	once.Do(func() {
-		filter = sensitive.DefaultNew()
-		filterBoss = sensitive.BossNew()
+		filter = sensitive.NewWithDefaultSDict()
+		filterBoss = sensitive.NewWithBossSDict()
 	})
 }
 
@@ -40,13 +40,13 @@ func Replace(s string) string {
 }
 ```
 
-#### DefaultNew & BossNew
+#### NewWithDefaultSDict & NewWithBossSDict
 
 初始化一个携带默认敏感词的过滤器 (github.com/Tohrusky/sensitive-go/sdict)。
 
 ```go
-filter := sensitive.DefaultNew()
-// filter := sensitive.BossNew()
+filter := sensitive.NewWithDefaultSDict()
+// filter := sensitive.NewWithBossSDict()
 ```
 
 #### New

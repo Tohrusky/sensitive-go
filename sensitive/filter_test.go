@@ -15,7 +15,7 @@ func TestDefaultNew(t *testing.T) {
 	if b != true && s != "" {
 		t.Error("New error: " + fmt.Sprint(b) + " " + s)
 	}
-	filter = DefaultNew()
+	filter = NewWithDefaultSDict()
 	b, s = filter.Validate("综合能力科目考试个别试题出现错误")
 	if b == true {
 		t.Error("DefaultNew error: " + fmt.Sprint(b) + " " + s)
@@ -23,12 +23,12 @@ func TestDefaultNew(t *testing.T) {
 }
 
 func TestBossNew(t *testing.T) {
-	filter := DefaultNew()
+	filter := NewWithDefaultSDict()
 	b, s := filter.Validate("小熊微泥")
 	if b != true {
 		t.Error("New error: " + fmt.Sprint(b) + " " + s)
 	}
-	filter = BossNew()
+	filter = NewWithBossSDict()
 	b, s = filter.Validate("小熊微泥")
 	if b == true {
 		t.Error("DefaultNew error: " + fmt.Sprint(b) + " " + s)
