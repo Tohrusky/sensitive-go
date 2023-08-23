@@ -54,6 +54,18 @@ func TestLoadNetWordDict(t *testing.T) {
 	}
 }
 
+func TestLoadNetWordDictError(t *testing.T) {
+	filter := New()
+	// 使用恶意的URL触发Error
+	url := "https://dfsyyymaliciousourl.com"
+
+	err := filter.LoadNetWordDict(url)
+	fmt.Println(err.Error())
+	if err == nil {
+		t.Errorf("Error not triggered")
+	}
+}
+
 func TestLoad(t *testing.T) {
 	filter := New()
 	var r io.Reader
