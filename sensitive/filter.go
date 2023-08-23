@@ -2,7 +2,7 @@ package sensitive
 
 import (
 	"bufio"
-	"github.com/Tohrusky/chinese-sensitive-go/sdict"
+	"github.com/Tohrusky/sensitive-go/sdict"
 	"io"
 	"net/http"
 	"os"

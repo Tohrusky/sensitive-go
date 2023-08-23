@@ -1,3 +1,3 @@
-module github.com/Tohrusky/chinese-sensitive-go
+module github.com/Tohrusky/sensitive-go
 
 go 1.20
