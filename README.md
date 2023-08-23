@@ -3,7 +3,13 @@
 Fork from [importcjj/sensitive](https://github.com/importcjj/sensitive).
 敏感词查找，验证，过滤以及替换。内置特色10w+敏感词。[![CI-Test](https://github.com/Tohrusky/sensitive-go/actions/workflows/CI-Test.yml/badge.svg)](https://github.com/Tohrusky/sensitive-go/actions/workflows/CI-Test.yml)
 
-#### 用法
+## 安装
+
+```bash
+go get github.com/Tohrusky/sensitive-go
+```
+
+## 用法
 
 ```go
 package sensitive
@@ -148,3 +154,6 @@ filter.LoadWordDict("./dict.txt")
 ```go
 filter.LoadNetWordDict("https://raw.githubusercontent.com/Tohrusky/sensitive-go/main/dict/dict.txt")
 ```
+## License
+
+sensitive-go is licensed under the MIT License.
