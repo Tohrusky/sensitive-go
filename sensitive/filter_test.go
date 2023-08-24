@@ -2,6 +2,7 @@ package sensitive
 
 import (
 	"fmt"
+	"github.com/Tohrusky/sensitive-go/sensitive/trie"
 	"io"
 	"reflect"
 	"regexp"
@@ -336,7 +337,7 @@ func TestDeleteWord2(t *testing.T) {
 
 func TestFilter_LoadWordDict(t *testing.T) {
 	type fields struct {
-		trie  *Trie
+		trie  *trie.Trie
 		noise *regexp.Regexp
 	}
 	type args struct {
@@ -363,7 +364,7 @@ func TestFilter_LoadWordDict(t *testing.T) {
 
 func TestFilter_LoadNetWordDict(t *testing.T) {
 	type fields struct {
-		trie  *Trie
+		trie  *trie.Trie
 		noise *regexp.Regexp
 	}
 	type args struct {
@@ -390,7 +391,7 @@ func TestFilter_LoadNetWordDict(t *testing.T) {
 
 func TestFilter_Load(t *testing.T) {
 	type fields struct {
-		trie  *Trie
+		trie  *trie.Trie
 		noise *regexp.Regexp
 	}
 	type args struct {

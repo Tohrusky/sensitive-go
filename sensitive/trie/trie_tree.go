@@ -1,4 +1,4 @@
-package sensitive
+package trie
 
 // Trie 短语组成的Trie树.
 type Trie struct {

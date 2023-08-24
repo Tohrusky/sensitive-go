@@ -1,4 +1,4 @@
-package sensitive
+package trie
 
 import (
 	"testing"

@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"github.com/Tohrusky/sensitive-go/sdict"
+	"github.com/Tohrusky/sensitive-go/sensitive/trie"
 	"io"
 	"net/http"
 	"os"
@@ -13,7 +14,7 @@ import (
 
 // Filter 敏感词过滤器
 type Filter struct {
-	trie  *Trie
+	trie  *trie.Trie
 	noise *regexp.Regexp
 }
 
@@ -34,7 +35,7 @@ func NewWithBossSDict() *Filter {
 // New 返回一个敏感词过滤器
 func New() *Filter {
 	return &Filter{
-		trie:  NewTrie(),
+		trie:  trie.NewTrie(),
 		noise: regexp.MustCompile(`[|\s&%$@*！!#^~_—｜'";.。，,?<>《》：:]+`),
 	}
 }
